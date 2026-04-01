@@ -1,0 +1,250 @@
+<!-- ===== HERO SECTION ===== -->
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <img src="images/hero.png" alt="Equipe de topografia em campo" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-bg-dark"></div>
+  </div>
+
+  <!-- Dot Pattern Overlay -->
+  <div class="absolute inset-0 bg-dots opacity-30 z-[1]"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+    <div class="animate-fade-in">
+      <span class="inline-block px-4 py-1.5 bg-primary/10 border border-primary/30 rounded-full text-primary text-xs font-semibold uppercase tracking-widest mb-6">
+        Topografia de Precisão
+      </span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-slide-up">
+      TOPOGRAFIA DE ALTA<br>
+      <span class="text-primary">PRECISÃO</span> COM<br>
+      TECNOLOGIA AVANÇADA
+    </h1>
+    <p class="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto mb-10 animate-slide-up" style="animation-delay: 0.2s; opacity: 0;">
+      Descubra como nossos serviços de topografia e engenharia podem transformar seu projeto.
+      Tecnologia de ponta e expertise comprovada.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style="animation-delay: 0.4s; opacity: 0;">
+      <a routerLink="/contato"
+         id="hero-cta-primary"
+         class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:shadow-primary/30">
+        Solicitar Orçamento
+        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a routerLink="/servicos"
+         id="hero-cta-secondary"
+         class="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-white/5 transition-all duration-300">
+        Nossos Serviços
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float">
+    <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS SECTION ===== -->
+<section id="benefits" class="relative py-20 sm:py-24 bg-bg-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (benefit of benefits; track benefit.title) {
+        <div class="group relative bg-bg-card border border-border rounded-xl p-8 text-center hover:border-primary/50 hover:bg-bg-card-hover transition-all duration-500">
+          <!-- Icon -->
+          <div class="w-16 h-16 mx-auto mb-5 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            @switch (benefit.icon) {
+              @case ('dollar') {
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              }
+              @case ('check') {
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+                </svg>
+              }
+              @case ('user') {
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                </svg>
+              }
+              @case ('tech') {
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+                </svg>
+              }
+            }
+          </div>
+          <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-3">{{ benefit.title }}</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">{{ benefit.description }}</p>
+
+          <!-- Decorative corner -->
+          <div class="absolute top-0 right-0 w-12 h-12 border-t border-r border-primary/0 group-hover:border-primary/30 rounded-tr-xl transition-all duration-500"></div>
+        </div>
+      }
+    </div>
+
+    <!-- CTA below benefits -->
+    <div class="text-center mt-12">
+      <a routerLink="/contato"
+         id="benefits-cta"
+         class="inline-flex items-center px-6 py-3 border border-border text-text-secondary text-xs font-bold uppercase tracking-widest rounded-lg hover:border-primary hover:text-primary transition-all duration-300">
+        Solicitar Orçamento Personalizado
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section id="about-section" class="relative py-20 sm:py-28 bg-bg-dark overflow-hidden section-pattern">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Left: Text -->
+      <div class="relative">
+        <!-- Vertical Tag -->
+        <div class="hidden lg:flex absolute -left-12 top-0 items-center">
+          <span class="text-primary text-xs font-bold uppercase tracking-widest transform -rotate-90 origin-left whitespace-nowrap">
+            A Geometric
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-bold text-white uppercase mb-6">
+          Um Pouco Sobre Nós
+        </h2>
+        <p class="text-text-secondary leading-relaxed mb-6">
+          A <span class="text-primary font-semibold">GEOMETRIC</span> é uma empresa que nasce da necessidade do mercado em ter empresas que atendam suas exigências garantindo a celeridade e qualidade no serviço prestado. Que vem aprimorando com versatilidade o atendimento a seus clientes, tendo como princípios: ética, profissionalismo e respeito com o próximo e ao meio ambiente.
+        </p>
+        <p class="text-text-secondary leading-relaxed mb-8">
+          Contamos com uma equipe multidisciplinar com vasta experiência técnica em segmentos de engenharia, topografia e meio ambiente. Desenvolvemos ações de forma rápida e assertiva, no diagnóstico, análise e implantação das soluções mais adequadas para o empreendimento.
+        </p>
+        <a routerLink="/sobre"
+           id="about-section-cta"
+           class="inline-flex items-center px-6 py-3 border border-border text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:border-primary hover:text-primary transition-all duration-300">
+          Mais sobre nós
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Image -->
+      <div class="relative">
+        <div class="relative rounded-xl overflow-hidden border border-border group">
+          <img src="images/hero.png"
+               alt="Equipe Geometric em campo"
+               class="w-full h-80 sm:h-96 object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-bg-dark/60 to-transparent"></div>
+
+          <!-- Green border decoration -->
+          <div class="absolute -top-2 -right-2 w-full h-full border-2 border-primary/20 rounded-xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES SECTION ===== -->
+<section id="services-section" class="relative py-20 sm:py-28 bg-bg-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="flex items-start gap-4 mb-12">
+      <div class="w-1 h-16 bg-primary rounded-full"></div>
+      <div>
+        <span class="text-primary text-xs font-bold uppercase tracking-widest">Serviços</span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase mt-1">
+          Nossos serviços totalmente<br>personalizados para você
+        </h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <!-- Services list -->
+      <div class="space-y-8">
+        @for (service of services; track service.number) {
+          <div class="group flex items-start gap-5 p-4 rounded-xl hover:bg-bg-card transition-all duration-300 cursor-pointer">
+            <span class="text-primary font-bold text-lg italic shrink-0">{{ service.number }}</span>
+            <div>
+              <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-1 group-hover:text-primary transition-colors duration-300">
+                {{ service.title }}
+              </h3>
+              <p class="text-text-secondary text-sm leading-relaxed">{{ service.description }}</p>
+            </div>
+          </div>
+        }
+
+        <a routerLink="/servicos"
+           id="services-section-cta"
+           class="inline-flex items-center px-6 py-3 border border-border text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:border-primary hover:text-primary transition-all duration-300 ml-4">
+          Quero falar sobre um projeto
+        </a>
+      </div>
+
+      <!-- Image -->
+      <div class="relative rounded-xl overflow-hidden border border-border">
+        <img src="images/service-drone.png"
+             alt="Serviço de topografia com drone"
+             class="w-full h-80 sm:h-[450px] object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-bg-dark/80 via-transparent to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section id="cta-banner" class="relative py-20 sm:py-28 bg-bg-dark overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 bg-dots opacity-20"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-tight mb-6">
+      <span class="text-primary">Aqui fazemos topografia</span><br>
+      <span class="text-white">com alta tecnologia</span>
+    </h2>
+    <p class="text-text-secondary text-base sm:text-lg max-w-2xl mx-auto mb-10">
+      Faça como nossos clientes e tenha a Geometric e nossas tecnologias trabalhando a favor do seu projeto.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a routerLink="/contato"
+         id="cta-banner-button"
+         class="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-primary-dark transition-all duration-300 hover:shadow-lg hover:shadow-primary/30">
+        Fazer Cotação
+      </a>
+      <a href="tel:+5571999999999"
+         class="inline-flex items-center justify-center px-8 py-4 border border-primary text-primary font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-primary/10 transition-all duration-300">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Ligar Agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIENTS SECTION ===== -->
+<section id="clients-section" class="relative py-16 sm:py-20 bg-bg-section">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="text-primary text-xs font-bold uppercase tracking-widest">Nossos Clientes</span>
+    <h2 class="text-2xl sm:text-3xl font-bold text-white uppercase mt-2 mb-4">
+      Agenda aberta para projetos personalizados
+    </h2>
+    <p class="text-text-secondary text-sm max-w-xl mx-auto mb-12">
+      Tenha os melhores engenheiros e especialistas na chamada Topografia do Futuro.
+      O que isso significa para o seu projeto? Muito mais do que cabe aqui.
+    </p>
+
+    <!-- Placeholder client logos -->
+    <div class="flex flex-wrap justify-center items-center gap-8 opacity-50">
+      @for (i of [1, 2, 3, 4, 5]; track i) {
+        <div class="w-24 h-12 bg-bg-card rounded-lg border border-border flex items-center justify-center">
+          <span class="text-text-muted text-xs font-bold">Cliente {{ i }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

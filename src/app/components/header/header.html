@@ -1,0 +1,97 @@
+<header
+  id="main-header"
+  [class.scrolled]="isScrolled()"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [ngClass]="isScrolled() ? 'bg-bg-nav backdrop-blur-lg shadow-lg shadow-black/20 py-3' : 'bg-transparent py-5'"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-1 group no-underline" id="header-logo" (click)="closeMobileMenu()">
+      <svg class="w-8 h-8 text-primary transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+        <path d="M2 12h20"></path>
+      </svg>
+      <span class="text-xl font-medium italic tracking-wider">
+        <span class="text-primary">GEO</span><span class="text-white">METRIC</span>
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-8" id="desktop-nav">
+      <a routerLink="/" routerLinkActive="!text-primary" [routerLinkActiveOptions]="{exact: true}"
+         class="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Home
+      </a>
+      <a routerLink="/sobre" routerLinkActive="!text-primary"
+         class="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        A Geometric
+      </a>
+      <a routerLink="/servicos" routerLinkActive="!text-primary"
+         class="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Serviços
+      </a>
+      <a routerLink="/contato" routerLinkActive="!text-primary"
+         class="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Contato
+      </a>
+      <a routerLink="/portfolio" routerLinkActive="!text-primary"
+         class="text-sm font-medium text-text-secondary hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Portfólio
+      </a>
+    </nav>
+
+    <!-- CTA Button (Desktop) -->
+    <a routerLink="/contato"
+       id="cta-header-button"
+       class="hidden lg:inline-flex items-center px-5 py-5 border border-primary text-primary text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-primary hover:text-white transition-all duration-300 no-underline">
+      Solicitar Orçamento
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      id="mobile-menu-toggle"
+      class="lg:hidden flex flex-col gap-1.5 p-2 relative z-50"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-label="Menu de navegação"
+    >
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300"
+            [ngClass]="isMobileMenuOpen() ? 'rotate-45 translate-y-2' : ''"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300"
+            [ngClass]="isMobileMenuOpen() ? 'opacity-0' : ''"></span>
+      <span class="block w-6 h-0.5 bg-white transition-all duration-300"
+            [ngClass]="isMobileMenuOpen() ? '-rotate-45 -translate-y-2' : ''"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isMobileMenuOpen()) {
+    <div class="lg:hidden fixed inset-0 bg-bg-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 animate-fade-in" id="mobile-menu">
+      <a routerLink="/" (click)="closeMobileMenu()"
+         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Home
+      </a>
+      <a routerLink="/sobre" (click)="closeMobileMenu()"
+         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        A Geometric
+      </a>
+      <a routerLink="/servicos" (click)="closeMobileMenu()"
+         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Serviços
+      </a>
+      <a routerLink="/contato" (click)="closeMobileMenu()"
+         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Contato
+      </a>
+      <a routerLink="/portfolio" (click)="closeMobileMenu()"
+         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+        Portfólio
+      </a>
+      <a routerLink="/contato" (click)="closeMobileMenu()"
+         class="mt-4 inline-flex items-center px-8 py-3 border-2 border-primary text-primary text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-primary hover:text-white transition-all duration-300 no-underline">
+        Solicitar Orçamento
+      </a>
+    </div>
+  }
+</header>
