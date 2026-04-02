@@ -1,8 +1,12 @@
 <header
   id="main-header"
-  [class.scrolled]="isScrolled()"
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  [ngClass]="isScrolled() ? 'bg-bg-nav backdrop-blur-lg shadow-lg shadow-black/20 py-3' : 'bg-transparent py-5'"
+  [ngClass]="{
+    'py-3': isScrolled(),
+    'py-5': !isScrolled(),
+    'bg-bg-nav backdrop-blur-lg shadow-lg shadow-black/20': isScrolled() && !isMobileMenuOpen(),
+    'bg-transparent': !isScrolled() || isMobileMenuOpen()
+  }"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
     <!-- Logo -->
@@ -65,33 +69,34 @@
     </button>
   </div>
 
-  <!-- Mobile Menu -->
-  @if (isMobileMenuOpen()) {
-    <div class="lg:hidden fixed inset-0 bg-bg-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 animate-fade-in" id="mobile-menu">
-      <a routerLink="/" (click)="closeMobileMenu()"
-         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
-        Home
-      </a>
-      <a routerLink="/sobre" (click)="closeMobileMenu()"
-         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
-        A Geometric
-      </a>
-      <a routerLink="/servicos" (click)="closeMobileMenu()"
-         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
-        Serviços
-      </a>
-      <a routerLink="/contato" (click)="closeMobileMenu()"
-         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
-        Contato
-      </a>
-      <a routerLink="/portfolio" (click)="closeMobileMenu()"
-         class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
-        Portfólio
-      </a>
-      <a routerLink="/contato" (click)="closeMobileMenu()"
-         class="mt-4 inline-flex items-center px-8 py-3 border-2 border-primary text-primary text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-primary hover:text-white transition-all duration-300 no-underline">
-        Solicitar Orçamento
-      </a>
-    </div>
-  }
 </header>
+
+<!-- Mobile Menu -->
+@if (isMobileMenuOpen()) {
+  <div class="lg:hidden fixed inset-0 bg-bg-dark/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 animate-fade-in" id="mobile-menu">
+    <a routerLink="/" (click)="closeMobileMenu()"
+       class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+      Home
+    </a>
+    <a routerLink="/sobre" (click)="closeMobileMenu()"
+       class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+      A Geometric
+    </a>
+    <a routerLink="/servicos" (click)="closeMobileMenu()"
+       class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+      Serviços
+    </a>
+    <a routerLink="/contato" (click)="closeMobileMenu()"
+       class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+      Contato
+    </a>
+    <a routerLink="/portfolio" (click)="closeMobileMenu()"
+       class="text-2xl font-semibold text-white hover:text-primary transition-colors duration-300 uppercase tracking-wider no-underline">
+      Portfólio
+    </a>
+    <a routerLink="/contato" (click)="closeMobileMenu()"
+       class="mt-4 inline-flex items-center px-8 py-3 border-2 border-primary text-primary text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-primary hover:text-white transition-all duration-300 no-underline">
+      Solicitar Orçamento
+    </a>
+  </div>
+}
